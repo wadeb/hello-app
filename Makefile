@@ -11,12 +11,12 @@ OBJS = Glut_hello_app.o tga.o GL_program.o GL_texture.o main.o
 all: hello_app
 
 hello_app: $(OBJS)
-	$(LD) $(LDFLAGS) $(OBJS) -o hello_app
+	$(LD) $(OBJS) $(LDFLAGS) -o hello_app
 
 main.o: main.cpp Glut_hello_app.h
 	$(CC) $(CFLAGS) main.cpp
 
-Glut_hello_app.o: Glut_hello_app.cpp Glut_hello_app.h Utility.h GL_texture.h
+Glut_hello_app.o: Glut_hello_app.cpp Glut_hello_app.h Utility.h GL_texture.h GL_program.h
 	$(CC) $(CFLAGS) Glut_hello_app.cpp
 
 tga.o: tga.cpp tga.h Utility.h

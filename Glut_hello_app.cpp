@@ -65,8 +65,9 @@ Glut_hello_app::Glut_hello_app(int argc, char **argv)
 
 	// GLEW initialization.
 	glewInit();
-	if (!GLEW_VERSION_2_0)
+	if (!GLEW_VERSION_2_0) {
 		throw Error("OpenGL 2.0 not available");
+	}
 
 	// Setup. Pass in the vertex shader filename if there is one.
 	make_resources(argc >= 2 ? argv[1] : v_shader_filename_c);
